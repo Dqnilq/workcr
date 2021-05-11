@@ -7,12 +7,11 @@ namespace controltest
         static void Main(string[] args)
         {
             var subject = new Another.Subject();
-            var observerA = new ConcreteObserverA();
+            var observerA = new Another.Subject();
             subject.Attach(observerA);
 
-            var observerB = new ConcreteObserverB();
+            var observerB = new Another.Subject();
             subject.Attach(observerB);
-            
             subject.SomeBusinessLogic();
             subject.SomeBusinessLogic();
 
