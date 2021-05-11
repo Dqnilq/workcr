@@ -69,7 +69,7 @@ namespace controltest
         }
     }
 }
-
+//
 // Выделим реализацию интефейса в отдельные два класса для показательного клиента!
 class ConcreteObserverA : Another.IObserver
 {
