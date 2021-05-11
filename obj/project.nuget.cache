@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "iYI85Zued6rFkz/zfbzs57UsM9NqpkNw6WGVpbdp9TJiNI1RkdSZeZPAuJQQ3FafprlBpoTl6zOYKBEXG0V79g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Danila\\Desktop\\HomeWorkIT\\controltest\\controltest\\controltest.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Danila\\.nuget\\packages\\fsharp.core\\5.0.0\\fsharp.core.5.0.0.nupkg.sha512",
+    "C:\\Users\\Danila\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
