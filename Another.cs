@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
-using controltest;
 
 namespace controltest
 {
     public class Another
     {
-
+        
         public interface IObserver
         {
             void Update(ISubject subject);
@@ -21,13 +20,12 @@ namespace controltest
 
             void Notify();
         }
-
         // Рассмотрим реализацю паттерна "Observer" 
         // Как мы видим, его реализация имеет две интерфейса "IObserver" & "ISubject" 
         // Однако наследование двух интерфейсов происходит сразу в одном классе "Subject", параллельно "склеивая" логикую обоих интерфейсов в одном классе никак не связываю их логику между собой.
         // Что в следствии чего создает запах "Неуместная близость" 
         // Для реализации техники "Извлечение класс" избавимся от этого запаха, создав новый класс под наследование другого интерфейса.. в другой ветке.
-        public class Subject : ISubject
+        public class Subject : ISubject, IObserver
         {
             public int State { get; set; } = -0;
 
@@ -65,30 +63,17 @@ namespace controltest
                 Console.WriteLine("Subject: My state has just changed to: " + this.State);
                 this.Notify();
             }
+            
+            public void Update(ISubject subject)
+            {
+                if ((subject as Subject).State == 0 || (subject as Subject).State >= 2)
+                {
+                    Console.WriteLine("ConcreteObserverB: Reacted to the event.");
+                }
+            }
 
+          
         }
-    }
-}
 
-// Выделим реализацию интефейса в отдельные два класса для показательного клиента!
-class ConcreteObserverA : Another.IObserver
-{
-    public void Update(Another.ISubject subject)
-    {            
-        if ((subject as Another.Subject).State < 3)
-        {
-            Console.WriteLine("ConcreteObserverA: Reacted to the event.");
-        }
-    }
-}
-
-class ConcreteObserverB : Another.IObserver
-{
-    public void Update(Another.ISubject subject)
-    {
-        if ((subject as Another.Subject).State == 0 || (subject as Another.Subject).State >= 2)
-        {
-            Console.WriteLine("ConcreteObserverB: Reacted to the event.");
-        }
     }
 }
