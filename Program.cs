@@ -12,8 +12,6 @@ namespace controltest
 
             var observerB = new Another.Subject();
             subject.Attach(observerB);
-
-
             subject.SomeBusinessLogic();
             subject.SomeBusinessLogic();
 

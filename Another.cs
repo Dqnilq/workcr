@@ -74,6 +74,20 @@ namespace controltest
 
           
         }
+    }
+}
+//
+// Выделим реализацию интефейса в отдельные два класса для показательного клиента!
+class ConcreteObserverA : Another.IObserver
+{
+    public void Update(Another.ISubject subject)
+    {            
+        if ((subject as Another.Subject).State < 3)
+        {
+            Console.WriteLine("ConcreteObserverA: Reacted to the event.");
+        }
+    }
+}
 
     }
 }
